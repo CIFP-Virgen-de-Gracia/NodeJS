@@ -1,7 +1,9 @@
-var http = require('http');
+var http = require('http'), fs = require('fs');
  
+var html = fs.readFileSync('./index.html'); 
+
 http.createServer(function (req, res) {
     res.writeHead(200, {'Content-Type': 'text/html'});
-    res.end('Hola Mundo!');
-    console.log('Esto va a la consola');
+    res.write(html);
+    res.end();
 }).listen(8080);
