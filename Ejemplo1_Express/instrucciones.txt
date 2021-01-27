@@ -1,0 +1,4 @@
+npm init   --> Realiza el json de configuración de dependencias.
+npm install express --save  --> Descarga el módulo del framework.
+Agregamos la carpeta del módulo al .gitignore.
+
