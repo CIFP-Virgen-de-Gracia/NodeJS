@@ -1,4 +1,4 @@
 npm init   --> Realiza el json de configuración de dependencias.
-npm install express --save  --> Descarga el módulo del framework.
+npm install express --save  --> Descarga el módulo del framework. La opción --save guarda las especificaciones en package.json.
 Agregamos la carpeta del módulo al .gitignore.
 
