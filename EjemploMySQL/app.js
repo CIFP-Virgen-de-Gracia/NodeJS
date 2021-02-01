@@ -77,6 +77,30 @@ app.get("/datos/:dni", function(req, res) {
 });
 
 
+//Ejemplo de uso de la ruta siguiente: http://localhost:8090/index
+app.get("/index", function(req, res) {
+    res.render('index');
+});
+
+app.post("/buscar", function(req, res) {
+    handleDisconnect(connection); //Usamos mejor esta función que maneja la conexión.
+    var query = connection.query('SELECT * FROM personas WHERE DNI = ?', [req.body.dni], function(error, result) {
+        if (error) {
+            throw error;
+        } else {
+            var resultado = result;
+            if (resultado.length > 0) {
+                console.log(resultado);
+                res.render("mostrar", { datos: resultado, estado: true });
+            } else {
+                console.log('Registro no encontrado');
+                res.render('mostrar', { datos: null, estado: false })
+            }
+        }
+    });
+});
+
+
 //Lanzamos el servidor.
 app.listen(8090);
 
