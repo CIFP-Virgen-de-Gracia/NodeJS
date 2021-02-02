@@ -1,19 +1,10 @@
-<<<<<<< Updated upstream
-/*
-Este sería un ejemplo de como enviar variables a index.
-node servidor.js --> desde consola para ejecutar.
-*/
-var http = require('http'), fs = require('fs');
-=======
 var http = require('http'),
     fs = require('fs');
->>>>>>> Stashed changes
 
 http.createServer(function(req, res) {
     fs.readFile('./index.html', function(err, html) {
         var html_string = html.toString(); //Convertimos 'index.html' que está almacenado en html en binario a una cadena.
 
-<<<<<<< Updated upstream
     var variables = html_string.match(/[^\{\}]+(?=\})/g); //Este patrón buscará un valor entre llaves, 
                                                           //es decir variables a sustituir en 'index' en este caso.
                                                           //Esta función devuelve un vector con los nombres de variable encontrado en 'index'.
@@ -31,12 +22,4 @@ http.createServer(function(req, res) {
     res.write(html_string);//Enviamos el html procesado.
     res.end();
  });   
-=======
-        var nombre = "Fernando";
-
-        res.writeHead(200, { "Content-Type": "text/html" });
-        res.write(html);
-        res.end();
-    });
->>>>>>> Stashed changes
-}).listen(8080);
+}).listen(8090);
