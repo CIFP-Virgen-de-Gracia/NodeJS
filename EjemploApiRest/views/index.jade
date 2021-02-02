@@ -6,8 +6,7 @@ html(lang="en")
         title Rutas y formularios
     body
         h1!= nombre
-        form(action="validarTabla", method="POST")
-            - for(i=1;i<=4;i++)
-                input(type="text",name="caja",placeholder="Escribe algo")
-                br
+        form(action="buscar", method="POST")
+            input(type="text",name="dni",placeholder="DNI a buscar...")
+            br
             input(type="submit",value="Enviar")

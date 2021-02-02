@@ -9,8 +9,8 @@ http.createServer(function(req, res) {
                                                           //es decir variables a sustituir en 'index' en este caso.
                                                           //Esta función devuelve un vector con los nombres de variable encontrado en 'index'.
     //variables ['nombre']                                                          
-    var nombre = "Fernando ";
-    var apellidos = "Aranzabe";
+    var nombre = "Hola ";
+    var apellidos = "DAW2";
 
     for (let index = 0; index < variables.length; index++) {
        //eval permite pasar un String y lo evalúa como código de JS.
