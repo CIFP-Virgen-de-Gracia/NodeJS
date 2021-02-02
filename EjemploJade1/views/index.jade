@@ -4,7 +4,7 @@ html(lang="en")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         title Página con express
     body
-        //- h1!= nombre
+        h1!= nombre
 
         //Ejecutar código JS
         - var vector = [1,2,3,4];
@@ -23,13 +23,17 @@ html(lang="en")
             p.
              Hola haz click en #[a(href="https://cifpvirgendegracia.com/") este link] por favor.
 
-        - if (2 > 1)
+        - if (2 > 3)
             p.
              Probando el if.
+        - else 
+            p.
+              El else
              
             //Probando el each
         - each item in vector
             p= item
+
         - each item in vector
             case item
                 when 1
