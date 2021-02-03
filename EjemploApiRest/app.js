@@ -36,7 +36,7 @@ app.use(body_parser.json());
 //------------------------------- Rutas -------------------------------------
 // Display all users
 app.get('/personas', (request, response) => {
-    pool.query('SELECT * FROM naves', (error, result) => {
+    pool.query('SELECT * FROM personas', (error, result) => {
         if (error) throw error;
         response.status(200).send(result);
     });
@@ -47,7 +47,7 @@ app.get('/personas', (request, response) => {
 app.get('/personas/:id', (request, response) => {
     const id = request.params.id;
 
-    pool.query('SELECT * FROM naves WHERE id = ?', id, (error, result) => {
+    pool.query('SELECT * FROM personas WHERE id = ?', id, (error, result) => {
         if (error) throw error;
         response.status(200).send(result);
     });
@@ -60,7 +60,7 @@ app.post('/personas', (req, res) => {
     console.log(req.body);
     console.log(nombre);
     console.log(ciudad);
-    pool.query('INSERT INTO naves (nombre, ciudad) VALUES (?,?)', [req.body.nombre, req.body.ciudad], (error, result) => {
+    pool.query('INSERT INTO personas (nombre, ciudad) VALUES (?,?)', [req.body.nombre, req.body.ciudad], (error, result) => {
         if (error) throw error;
         res.status(201).send('Registro añadido ID:' + result.insertId);
     });
@@ -75,7 +75,7 @@ app.put('/personas/:id', (req, res) => {
     console.log(req.body);
     console.log(nombre);
     console.log(ciudad);
-    pool.query('UPDATE naves SET ? WHERE id = ?', [req.body, id], (error, result) => {
+    pool.query('UPDATE personas SET ? WHERE id = ?', [req.body, id], (error, result) => {
         if (error) throw error;
         res.status(201).send('Se han cambiado: ' + result.changedRows + " filas");
     });
@@ -85,7 +85,7 @@ app.put('/personas/:id', (req, res) => {
 app.delete('/personas/:id', (req, res) => {
     const id = req.params.id;
     console.log("Borrando el id: " + id);
-    pool.query('DELETE FROM naves WHERE id = ?', id, (error, result) => {
+    pool.query('DELETE FROM personas WHERE id = ?', id, (error, result) => {
         if (error) throw error;
         else {
             if (result.affectedRows == 0) {

@@ -73,7 +73,7 @@ Consumimos un servicio creado en Java Rest http://localhost:8080/EjemploGF/app/S
 //        $data = ['nombre' => 'Ya acabo',
 //            'ciudad' => 'Menuda turra'];
 //        $datos = json_encode($data);
-//        $ch = curl_init("http://localhost:8090/personas/1");
+//        $ch = curl_init("http://localhost:8090/personas/23");
 //        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 //        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
 //        curl_setopt($ch, CURLOPT_POSTFIELDS, $datos);
@@ -92,19 +92,19 @@ Consumimos un servicio creado en Java Rest http://localhost:8080/EjemploGF/app/S
         
 //       //------------------------------------------------------------------------------------------
 //          //Haciendo una petición DELETE: para borrar un artículo.        
-//        $ch = curl_init("http://localhost:8090/personas/20");
-//        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-//        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
-//        $response = curl_exec($ch);
-//        curl_close($ch);
-//        //var_dump($response);
-//        $respuesta = json_decode($response, true);
-//        //var_dump($respuesta);
-//        if (!$response) {
-//            echo "Se ha producido un error";
-//        } else {
-//            echo $response;
-//        }
+        $ch = curl_init("http://localhost:8090/personas/20");
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
+        $response = curl_exec($ch);
+        curl_close($ch);
+        //var_dump($response);
+        $respuesta = json_decode($response, true);
+        //var_dump($respuesta);
+        if (!$response) {
+            echo "Se ha producido un error";
+        } else {
+            echo $response;
+        }
         ?>
     </body>
 </html>
