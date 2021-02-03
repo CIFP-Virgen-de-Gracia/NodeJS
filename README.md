@@ -21,10 +21,10 @@ Bloque de acceso a datos:
 
     EjemploMySQL --> acceso a los datos de una bd MySQL con rutas express.
     EjemploApiRest --> sin seguridad.
+    EjemploMySQLPoolMVC --> Acceso a MySQL usando Pool y con el proyecto orientado a MVC.
 
 Ejemplos en los que se está trabajando:
-
-    EjemploMySQLPoolControladores --> Acceso a MySQL usando Pool y con el proyecto orientado a MVC.
+    
     EjemploMiddleware --> uso de middlewares en NodeJS.
     EjemploApiRestToken --> acceso a una api rest con tokens de seguridad y registro de usuarios.
     EjemploMongo --> configuración y uso de una app Node para el acceso a datos de una Mongo DB.
