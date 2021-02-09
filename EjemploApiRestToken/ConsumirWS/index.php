@@ -19,30 +19,30 @@ Consumimos un servicio creado en Java Rest http://localhost:8080/EjemploGF/app/S
         
 //      //------------------------------------------------------------------------------------------
         //Haciendo una petición GET con parámetro en la URL.
-        $ch = curl_init("http://localhost:8090/personas/999");
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        //establecemos el verbo http que queremos utilizar para la petición
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
-        $response = curl_exec($ch);
+//        $ch = curl_init("http://localhost:8090/personas/9");
+//        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+//        //establecemos el verbo http que queremos utilizar para la petición
+//        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+//        $response = curl_exec($ch);
         
         
         //----------- Código común para los GET de arriba ---------
         // Se cierra el recurso CURL y se liberan los recursos del sistema
-        curl_close($ch);
-        if (!$response) {
-            return false;
-        } else {
-            echo '<br>';
-            var_dump($response);
-            $data = json_decode($response, true);
-            if (empty($data)) {
-                echo 'No se han obtenido registros.';
-            } else {
-                foreach ($data as $cod => $emp) {
-                    echo 'Nombre: ' . $emp['nombre'] . '<br>Ciudad: ' . $emp['ciudad'] . '<br>--------<br>';
-                }
-            }
-        }
+//        curl_close($ch);
+//        if (!$response) {
+//            return false;
+//        } else {
+//            echo '<br>';
+//            var_dump($response);
+//            $data = json_decode($response, true);
+//            if (empty($data)) {
+//                echo 'No se han obtenido registros';
+//            } else {
+//                foreach ($data as $cod => $emp) {
+//                    echo 'Nombre: ' . $emp['nombre'] . '<br>Ciudad: ' . $emp['ciudad'] . '<br>--------<br>';
+//                }
+//            }
+//        }
         
         
 //      //------------------------------------------------------------------------------------------
@@ -92,19 +92,19 @@ Consumimos un servicio creado en Java Rest http://localhost:8080/EjemploGF/app/S
         
 //       //------------------------------------------------------------------------------------------
 //          //Haciendo una petición DELETE: para borrar un artículo.        
-//        $ch = curl_init("http://localhost:8090/personas/20");
-//        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-//        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
-//        $response = curl_exec($ch);
-//        curl_close($ch);
-//        //var_dump($response);
-//        $respuesta = json_decode($response, true);
-//        //var_dump($respuesta);
-//        if (!$response) {
-//            echo "Se ha producido un error";
-//        } else {
-//            echo $response;
-//        }
+        $ch = curl_init("http://localhost:8090/personas/20");
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
+        $response = curl_exec($ch);
+        curl_close($ch);
+        //var_dump($response);
+        $respuesta = json_decode($response, true);
+        //var_dump($respuesta);
+        if (!$response) {
+            echo "Se ha producido un error";
+        } else {
+            echo $response;
+        }
         ?>
     </body>
 </html>

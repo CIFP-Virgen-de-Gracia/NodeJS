@@ -19,5 +19,5 @@ app.set("view engine", "jade");
 app.use("/",nota_routes);
  
 module.exports = app; //Exportamos los métodos de esta clase.
-
+console.log("Servidor arrancado: http://localhost:8090");
 app.listen(8090);
