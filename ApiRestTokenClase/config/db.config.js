@@ -1,3 +1,4 @@
+//Esto debería ir en el .gitignore, se deja con fines didácticos.
 module.exports = {
     // HOST: 'localhost',
     // USER: 'fernando',
