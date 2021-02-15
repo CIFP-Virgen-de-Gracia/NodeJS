@@ -1,29 +1,31 @@
+var mysql = require('mysql');
+var express = require('express');
+var app = express();
+var bodyParser = require('body-parser');
+var configDB = require("../config/db.config");
+
+// app.use(body_parser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+/*
+Para la eficiencia, vamos a crear un pool de MySQL, que nos permite utilizar múltiples conexiones 
+a la vez en lugar de tener que manualmente abrir y cerrar conexiones múltiples.
+*/
+var pool = mysql.createPool(configDB);
+
+
+
+
 checkDuplicateUsernameOrEmail = (req, res, next) => {
-    // pool.query('SELECT * FROM users WHERE email = ?', req.body.email, (error, result) => {
-    //     if (error) throw error;
-    //     if (result.length > 0) {
-    //         var passwordIsValid = bcrypt.compareSync(
-    //             req.body.password,
-    //             result[0].password
-    //         );
-    //         if (!passwordIsValid) {
-    //             return res.status(401).send({
-    //                 status: 401,
-    //                 accessToken: null,
-    //                 message: "Invalid Password!"
-    //             });
-    //         } else {
-    //             console.log(result[0].id);
-    //             var token = jwt.sign({ id: result[0].id }, config.secret, {
-    //                 expiresIn: 86400 // 24 hours
-    //             });
-    //             res.status(200).send({ status: 200, accessToken: token, message: 'Login Ok' });
-    //         }
-    //     } else {
-    //         return res.status(404).send({ status: 404, message: "User Not found." });
-    //     }
-    // });
-    next();
+    pool.query('SELECT * FROM users WHERE email = ?', req.body.email, (error, result) => {
+        if (error) throw error;
+        var resultado = result;
+        if (resultado.length > 0) {
+            res.status(500).send({ status: 500, message: 'Error al registrar' });
+        } else {
+            next();
+        }
+    });
 };
 
 checkRolesExisted = (req, res, next) => {
