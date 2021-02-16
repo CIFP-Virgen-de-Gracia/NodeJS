@@ -60,9 +60,9 @@ app.post('/personas', (req, res) => {
     var ciudad = req.body.nombre;
     var tfno = req.body.tfno;
     console.log(req.body);
-    pool.query('INSERT INTO personas (DNI, Nombre, Tfno) VALUES (?,?,?)', [nombre, ciudad, tfno], (error, result) => {
-        if (error) res.status(400).send('Error al insertar');
-        else res.status(201).send('Registro añadido ID:' + result.insertId); //En este caso esto devuelve 0 porque la clave no es Id.
+    pool.query('INSERT INTO personas (DNI, Nombre, Clave, Tfno) VALUES (?,?,?,?)', [nombre, ciudad, 1234, tfno], (error, result) => {
+        if (error) res.status(400).send({status:400, message:'Error al insertar'});
+        else res.status(201).send({status:201,message:'Registro añadido ID:' + result.insertId}); //En este caso esto devuelve 0 porque la clave no es Id.
     });
 });
 
@@ -72,8 +72,8 @@ app.put('/personas/:dni', (req, res) => {
     const dni = req.params.dni;
     console.log(req.body);
     pool.query('UPDATE personas SET ? WHERE DNI = ?', [req.body, dni], (error, result) => {
-        if (error) res.status(400).send('Error al actualizar');
-        else res.status(201).send('Se han cambiado: ' + result.changedRows + " filas");
+        if (error) res.status(400).send({status:400, message:'Error al actualizar'});
+        else res.status(201).send({status:201, message:'Se han cambiado: ' + result.changedRows + " filas"});
     });
 });
 
@@ -86,9 +86,9 @@ app.delete('/personas/:dni', (req, res) => {
         if (error) throw error;
         else {
             if (result.affectedRows == 0) {
-                res.status(404).send('Se han borrado: ' + result.affectedRows + " filas");
+                res.status(404).send({status:404, message:'Se han borrado: ' + result.affectedRows + " filas"});
             } else {
-                res.status(201).send('Se han borrado: ' + result.affectedRows + " filas");
+                res.status(201).send({status:201, message:'Se han borrado: ' + result.affectedRows + " filas"});
             }
         }
     });

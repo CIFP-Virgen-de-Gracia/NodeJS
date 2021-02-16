@@ -46,11 +46,11 @@ Consumimos un servicio creado en Java Rest http://localhost:8080/EjemploGF/app/S
         
 //      //------------------------------------------------------------------------------------------
         //Haciendo una petición POST: para insertar un artículo.        
-//        $data = ['dni' => '9091B',
-//            'nombre' => 'Un alumno',
+//        $data = ['dni' => '100aAF',
+//            'nombre' => 'Otro nombre',
 //            'tfno' => '123456789'];
 //        $datos = json_encode($data);
-////        var_dump($datos);
+//        var_dump($datos);
 //        $ch = curl_init("http://localhost:8090/personas");
 //        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 //        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
@@ -59,12 +59,13 @@ Consumimos un servicio creado en Java Rest http://localhost:8080/EjemploGF/app/S
 //        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
 //
 //        $response = curl_exec($ch);
-////        var_dump($response);
+//        var_dump($response);
 //        curl_close($ch);
-//        if (!$response) {
-//            echo "Se ha producido un error";
+//        $data = json_decode($response, true);
+//        if ($data['status'] == 201) {
+//            echo "Insertado correctamente";
 //        } else {
-//            echo $response;
+//            echo 'Se ha producido un error: '.$data['message'];
 //        }
 
 
@@ -74,37 +75,38 @@ Consumimos un servicio creado en Java Rest http://localhost:8080/EjemploGF/app/S
 //            'Nombre' => 'Otro alumno',
 //            'Tfno' => '12389'];
 //        $datos = json_encode($data);
-//        $ch = curl_init("http://localhost:8090/personas/504");
+//        $ch = curl_init("http://localhost:8090/personas/1A");
 //        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 //        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
 //        curl_setopt($ch, CURLOPT_POSTFIELDS, $datos);
 //        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
 //        $response = curl_exec($ch);
+//        var_dump($response);
 //        curl_close($ch);
-////        var_dump($response);
-//        $respuesta = json_decode($response, true);
-////        var_dump($respuesta);
-//        if (!$response) {
-//            echo "Se ha producido un error";
+//        $data = json_decode($response, true);
+//        var_dump($data);
+//        if ($data['status'] == 201) {
+//            echo "Cambios realizados: ".$data['message'];
 //        } else {
-//            echo $response;
+//            echo 'Se ha producido un error: '.$data['message'];
 //        }
 
         
 //       //------------------------------------------------------------------------------------------
 //       //Haciendo una petición DELETE: para borrar un artículo.        
-//        $ch = curl_init("http://localhost:8090/personas/909B");
+//        $ch = curl_init("http://localhost:8090/personas/100AaF");
 //        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 //        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
 //        $response = curl_exec($ch);
 //        curl_close($ch);
-//        //var_dump($response);
-//        $respuesta = json_decode($response, true);
-//        //var_dump($respuesta);
-//        if (!$response) {
-//            echo "Se ha producido un error";
+//        var_dump($response);
+//        curl_close($ch);
+//        $data = json_decode($response, true);
+//        var_dump($data);
+//        if ($data['status'] == 201) {
+//            echo "Cambios realizados: ".$data['message'];
 //        } else {
-//            echo $response;
+//            echo 'Se ha producido un error: '.$data['message'];
 //        }
         ?>
     </body>
